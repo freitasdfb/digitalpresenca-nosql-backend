@@ -11,7 +11,7 @@ class EventController {
 
     const idEvento = event.id;
 
-    event.qrcode = (qrcode(`Id do Evento: ${idEvento}`));
+    event.qrcode = (qrcode(''));
 
     await event.save();
 
