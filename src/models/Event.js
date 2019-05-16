@@ -15,6 +15,11 @@ const Event = new mongoose.Schema({
     type: String,
   },
 
+  owner: {
+    type: String,
+    required: true,
+  },
+
   users: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 
 },

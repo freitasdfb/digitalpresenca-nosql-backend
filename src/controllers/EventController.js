@@ -8,10 +8,11 @@ class EventController {
   //Criar Evento
   async store(req, res) {
     const event = await Event.create(req.body);
+    const user = await User.findById(req.params.idUser);
 
-    const idEvento = event.id;
 
-    event.qrcode = (qrcode(''));
+    event.qrcode = (qrcode(`${event.id}`));
+    event.owner = user.id;
 
     await event.save();
 
