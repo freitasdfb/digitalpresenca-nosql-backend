@@ -17,11 +17,11 @@ const Event = new mongoose.Schema({
 
   owner: {
     type: String,
-    required: true,
   },
 
   users: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 
+  usersInvited: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 },
   {
     timestamps: true

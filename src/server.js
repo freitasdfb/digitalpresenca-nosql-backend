@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
+const bodyParser = require('body-parser')
 const app = express();
 
 //Para aceitar CORS
@@ -11,8 +11,13 @@ mongoose.connect('mongodb+srv://victor:victor123@cluster0-3yucu.mongodb.net/digi
   useNewUrlParser: true,
 });
 
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
 //Para retornar json
-app.use(express.json());
+app.use(bodyParser.json());
 //Para realizar envio de arquivos
 app.use(express.urlencoded({ extended: true }));
 //Arquivo de rotas

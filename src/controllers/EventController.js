@@ -7,9 +7,10 @@ class EventController {
 
   //Criar Evento
   async store(req, res) {
+    console.log(req.body)
     const event = await Event.create(req.body);
-    const user = await User.findById(req.params.idUser);
 
+    const user = await User.findById(req.params.idUser);
 
     event.qrcode = (qrcode(`${event.id}`));
     event.owner = user.id;
@@ -47,7 +48,6 @@ class EventController {
 
     return res.json(event);
   };
-
 
 }
 

@@ -5,6 +5,18 @@ const User = new mongoose.Schema({
     type: String,
     require: true
   },
+
+  email: {
+    type: String,
+    required: true,
+  },
+
+  password: {
+    type: String,
+    required: true,
+    select: false,
+  },
+
   events: [{ type: mongoose.Schema.Types.ObjectId, ref: "Event" }],
 },
 {
